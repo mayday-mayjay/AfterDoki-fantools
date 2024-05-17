@@ -173,11 +173,9 @@
             const includeCategory = document.getElementById('include_category').checked;
             const unlocked = document.getElementById('unlocked').checked;
     
-            // Sanitize authorInitials and name
             authorInitials = authorInitials.replace(/[^a-z0-9_]/g, '').toLowerCase();
             name = name.replace(/[^a-z0-9_]/g, '').toLowerCase();
     
-            // Sanitize displayName (allowing additional characters)
             displayName = displayName.replace(/[^a-zA-Z0-9_ \-!?$&()\[\]]/g, '');
     
             let combinedName = `${authorInitials}_${name}`;
@@ -200,10 +198,10 @@
             const jsonText = document.getElementById('json-template').textContent;
             navigator.clipboard.writeText(jsonText).then(() => {
                 const copyMessage = document.getElementById('copy-message');
-                copyMessage.style.opacity = 1; // Make the "Copied!" message visible
+                copyMessage.style.opacity = 1;
                 setTimeout(() => {
-                    copyMessage.style.opacity = 0; // Fade out the message
-                }, 2000); // Message fades out after 2 seconds
+                    copyMessage.style.opacity = 0;
+                }, 2000);
             }, (err) => {
                 console.error('Error in copying text: ', err);
             });
@@ -247,7 +245,6 @@
             return allFilled;
         }
         
-        // Attach event listeners
         const inputFields = document.querySelectorAll('input, select');
         inputFields.forEach(input => {
             input.addEventListener('input', () => {
